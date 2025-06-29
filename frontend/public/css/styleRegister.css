@@ -1,0 +1,66 @@
+body,html {
+    background-image: url("images/fondFuturiste.jpg");
+     background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+     align-items: center; /* Centre les éléments horizontalement */
+      display: flex;
+    flex-direction: column;
+
+}
+
+
+h1 {
+    font-size: 75px;
+    color: white;
+    margin-top: 40px; 
+    text-align: center; /* Centré horizontalement */
+}
+
+
+.container {
+    background-color: rgba(255, 255, 255, 0.9); /* Fond blanc semi-transparent */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    width: 250px; /* Largeur fixe pour le formulaire */
+    text-align: center;
+    margin-top: 220px; /* Espace sous le titre */
+}
+
+
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Style pour le bouton */
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+}
