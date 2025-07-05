@@ -1,0 +1,137 @@
+header{
+	padding:25px 0px;
+	background-color: rgba(255, 255, 255, 0.5); 
+	text-align:left;
+	
+	height:40px;
+}
+
+.centercolumn{
+	width:600px;/*Taille de la colonne centrée moins le padding*/
+	margin-left:350px; /*centrer la colonne*/
+	padding:25px;/*margin interne*/
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+	min-height: 100vh;
+	background-image:url("images/fond2.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size:cover;
+}
+
+.player{
+	
+	width:930px;/*Taille de la colonne centrée moins le padding*/
+	background-color: rgba(255, 255, 255, 0.5); 
+	margin: auto; /*centrer la colonne*/
+	padding:25px;/*margin interne*/
+	display:block;
+}
+
+.team{
+	
+	width:930px;/*Taille de la colonne centrée moins le padding*/
+	background-color: rgba(255, 255, 255, 0.5); 
+	margin: auto; /*centrer la colonne*/
+	padding:25px;/*margin interne*/
+	display:none
+}
+
+
+.game{
+	
+	width:930px;/*Taille de la colonne centrée moins le padding*/
+	background-color: rgba(255, 255, 255, 0.5); 
+	margin: auto; /*centrer la colonne*/
+	padding:25px;/*margin interne*/
+	display:none;
+
+}
+
+.prenom{
+	width:400px;/*Taille de la colonne centrée moins le padding*/
+	height:25px;
+}
+
+.nom{
+	width:400px;/*Taille de la colonne centrée moins le padding*/
+	height:25px;
+}
+.valider{
+	width:100px;
+	margin-left:20px;
+}
+
+.playerButton{
+	width:80px;
+}
+.teamButton{
+	width:80px;
+}
+.gameButton{
+	width:80px;
+}
+
+.search-button{
+	margin-left:60px;
+	width:60px;
+}
+
+
+.answer {
+    width: 980px;
+    background-color: rgba(255, 255, 255, 0.5); /* fond plus opaque */
+    color: #222; /* texte bien foncé */
+    font-size: 1.2em; /* texte plus grand */
+    font-weight: bold;
+    
+   
+}
+
+.player-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background: rgba(255,255,255,0.85);
+}
+.player-table th, .player-table td {
+  border: 1px solid #0055A4;
+  padding: 8px 12px;
+  text-align: center;
+}
+.player-table th {
+  background: linear-gradient(90deg, #0055A4 0%, #FFFFFF 50%, #EF4135 100%);
+  color: #222;
+  font-weight: bold;
+}
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 25px;
+    background-color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+    height: 40px;
+    z-index: 100;
+    margin-top: 0; /* retire le margin-top */
+}
+
+h1{
+	margin-top:0px;
+	margin-left:50px;
+	
+    background: linear-gradient(90deg, #0055A4 0%, #FFFFFF 50%, #EF4135 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}

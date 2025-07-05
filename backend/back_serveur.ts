@@ -141,8 +141,47 @@ router.post("/login", async (ctx) => {
 
 
 
+router.get("/api/nba/teams", async (ctx) => {
+  try {
+    const API_KEY = "71827bd2-05f4-4679-8897-688b8ee92c6a";
+    const URL = "https://api.balldontlie.io/v1/teams";
+    const response = await fetch(URL, {
+      headers: { "Authorization": API_KEY }
+    });
+    const text = await response.text();
+    console.log("Réponse balldontlie:", text); 
+    ctx.response.body = JSON.parse(text);
+  } catch (e) {
+    ctx.response.status = 500;
+    ctx.response.body = { error: "Erreur lors de la récupération des équipes NBA", details: e.message };
+  }
+});
 
 
+
+router.get("/api/nba/players", async (ctx) => {
+  try {
+    const API_KEY = "71827bd2-05f4-4679-8897-688b8ee92c6a"; 
+    let baseURL = "https://api.balldontlie.io/v1/players";
+    const params: string[] = [];
+    const firstName = ctx.request.url.searchParams.get("first_name");
+    const lastName = ctx.request.url.searchParams.get("last_name");
+    if (firstName!= null && lastName !=null){
+      baseURL = `https://api.balldontlie.io/v1/players?first_name=${firstName}&last_name=${lastName}`; 
+    };
+    const response = await fetch(baseURL, {
+      headers: { "Authorization": API_KEY }
+    });
+
+    const text = await response.text();
+    console.log("Réponse balldontlie:", text);
+    const data = JSON.parse(text);
+    ctx.response.body = data;
+  } catch (e) {
+    ctx.response.status = 500;
+    ctx.response.body = { error: "Erreur lors de la récupération du joueur NBA", details: e.message };
+  }
+});
 
 
 
