@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+
+
 <html>
     <head>
         <title>FuturesStar</title>
@@ -13,21 +16,178 @@
             <button class = playerButton>player</button>
             <button class = teamButton>team</button>
             <button class = gameButton>game</button>
+
             <div class = "player">
-                <input type = "search-box" class = "prenom" placeholder = "first-name"></button>
-                <input type = "search-box" class = "nom" placeholder = "last-name"></button>
+                <input type = "search-box" class = "prenom" placeholder = "first-name">
+                <input type = "search-box" class = "nom" placeholder = "last-name">
                 <button class = "valider">Search</button>
+
+
+                <select  class = "poste" id="position-select">
+                <option value="Position : none">Position : none</option>
+                <option value="G">G</option>
+                <option value="F">F</option>
+                <option value="C">C</option>
+                <option value="F-G">F-G</option>
+                <option value="G-F">G-F</option>
+                <option value="C-F">C-F</option>
+                <option value="F-C">F-C</option>
+                </select>
+
+                <input type = "search-box" class = "height" placeholder = "height in ft">
+                
+                <select class="team-select">
+                    <option value="team">team</option>
+                    <option value="Atlanta Hawks">Atlanta Hawks</option>
+                    <option value="Boston Celtics">Boston Celtics</option>
+                    <option value="Brooklyn Nets">Brooklyn Nets</option>
+                    <option value="Charlotte Hornets">Charlotte Hornets</option>
+                    <option value="Chicago Bulls">Chicago Bulls</option>
+                    <option value="Cleveland Cavaliers">Cleveland Cavaliers</option>
+                    <option value="Dallas Mavericks">Dallas Mavericks</option>
+                    <option value="Denver Nuggets">Denver Nuggets</option>
+                    <option value="Detroit Pistons">Detroit Pistons</option>
+                    <option value="Golden State Warriors">Golden State Warriors</option>
+                    <option value="Houston Rockets">Houston Rockets</option>
+                    <option value="Indiana Pacers">Indiana Pacers</option>
+                    <option value="LA Clippers">LA Clippers</option>
+                    <option value="Los Angeles Lakers">Los Angeles Lakers</option>
+                    <option value="Memphis Grizzlies">Memphis Grizzlies</option>
+                    <option value="Miami Heat">Miami Heat</option>
+                    <option value="Milwaukee Bucks">Milwaukee Bucks</option>
+                    <option value="Minnesota Timberwolves">Minnesota Timberwolves</option>
+                    <option value="New Orleans Pelicans">New Orleans Pelicans</option>
+                    <option value="New York Knicks">New York Knicks</option>
+                    <option value="Oklahoma City Thunder">Oklahoma City Thunder</option>
+                    <option value="Orlando Magic">Orlando Magic</option>
+                    <option value="Philadelphia 76ers">Philadelphia 76ers</option>
+                    <option value="Phoenix Suns">Phoenix Suns</option>
+                    <option value="Portland Trail Blazers">Portland Trail Blazers</option>
+                    <option value="Sacramento Kings">Sacramento Kings</option>
+                    <option value="San Antonio Spurs">San Antonio Spurs</option>
+                    <option value="Toronto Raptors">Toronto Raptors</option>
+                    <option value="Utah Jazz">Utah Jazz</option>
+                    <option value="Washington Wizards">Washington Wizards</option>
+                </select>
+                <button class ="clear">Clear</button>
+                        
             </div>
             <div class = "team">
-                <input type = "search-box" class = "nameTeam" placeholder="name of the team"></button>
+                <select class="team-select2">
+                    <option value="team">team</option>
+                    <option value="Atlanta Hawks">Atlanta Hawks</option>
+                    <option value="Boston Celtics">Boston Celtics</option>
+                    <option value="Brooklyn Nets">Brooklyn Nets</option>
+                    <option value="Charlotte Hornets">Charlotte Hornets</option>
+                    <option value="Chicago Bulls">Chicago Bulls</option>
+                    <option value="Cleveland Cavaliers">Cleveland Cavaliers</option>
+                    <option value="Dallas Mavericks">Dallas Mavericks</option>
+                    <option value="Denver Nuggets">Denver Nuggets</option>
+                    <option value="Detroit Pistons">Detroit Pistons</option>
+                    <option value="Golden State Warriors">Golden State Warriors</option>
+                    <option value="Houston Rockets">Houston Rockets</option>
+                    <option value="Indiana Pacers">Indiana Pacers</option>
+                    <option value="LA Clippers">LA Clippers</option>
+                    <option value="Los Angeles Lakers">Los Angeles Lakers</option>
+                    <option value="Memphis Grizzlies">Memphis Grizzlies</option>
+                    <option value="Miami Heat">Miami Heat</option>
+                    <option value="Milwaukee Bucks">Milwaukee Bucks</option>
+                    <option value="Minnesota Timberwolves">Minnesota Timberwolves</option>
+                    <option value="New Orleans Pelicans">New Orleans Pelicans</option>
+                    <option value="New York Knicks">New York Knicks</option>
+                    <option value="Oklahoma City Thunder">Oklahoma City Thunder</option>
+                    <option value="Orlando Magic">Orlando Magic</option>
+                    <option value="Philadelphia 76ers">Philadelphia 76ers</option>
+                    <option value="Phoenix Suns">Phoenix Suns</option>
+                    <option value="Portland Trail Blazers">Portland Trail Blazers</option>
+                    <option value="Sacramento Kings">Sacramento Kings</option>
+                    <option value="San Antonio Spurs">San Antonio Spurs</option>
+                    <option value="Toronto Raptors">Toronto Raptors</option>
+                    <option value="Utah Jazz">Utah Jazz</option>
+                    <option value="Washington Wizards">Washington Wizards</option>
+                </select>
+
+                <select class = "oldTeam">
+                    <option value="old team">old team</option>
+                    <option value="Anderson Packers">Anderson Packers</option>
+                    <option value="Baltimore Bullets">Baltimore Bullets</option>
+                    <option value="Chicago Stags">Chicago Stags</option>
+                    <option value="Cleveland Rebels">Cleveland Rebels</option>
+                    <option value="Detroit Falcons">Detroit Falcons</option>
+                    <option value="Indianapolis Jets">Indianapolis Jets</option>
+                    <option value="Indianapolis Olympians">Indianapolis Olympians</option>
+                    <option value="Pittsburgh Ironmen">Pittsburgh Ironmen</option>
+                    <option value="Providence Steamrollers">Providence Steamrollers</option>
+                    <option value="Sheboygan Redskins">Sheboygan Redskins</option>
+                    <option value="St. Louis Bombers">St. Louis Bombers</option>
+                    <option value="Toronto Huskies">Toronto Huskies</option>
+                    <option value="Washington Capitols">Washington Capitols</option>
+                    <option value="Waterloo Hawks">Waterloo Hawks</option>
+                </select>
+                
+                
+                <select class = "conference">
+                    <option value = "conference">conference</option>
+                    <option value = "East">East</option>
+                    <option value = "West">West</option>
+                </select>
+                <select class = "division">
+                    <option value = "division">division</option>
+                    <option value = "Atlantic">Atlantic</option>
+                    <option value = "Central">Central</option>
+                    <option value = "Southeast">Southeast</option>
+                    <option value = "Northwest">Northwest</option>
+                    <option value = "Pacific">Pacific</option>
+                    <option value = "Southwest">SouthWest</option>
+                </select>
+                <button class ="clearTeam">clear</button>
+                <button class = "searchTeam">Search</button>
+                
             </div>
 
             <div class = "game">
-                <input type = "search-box" class = "nameGame" placeholder="name of the game"></button>
-
+                <select class="team_game">
+                    <option value="team">team</option>
+                    <option value="Atlanta Hawks">Atlanta Hawks</option>
+                    <option value="Boston Celtics">Boston Celtics</option>
+                    <option value="Brooklyn Nets">Brooklyn Nets</option>
+                    <option value="Charlotte Hornets">Charlotte Hornets</option>
+                    <option value="Chicago Bulls">Chicago Bulls</option>
+                    <option value="Cleveland Cavaliers">Cleveland Cavaliers</option>
+                    <option value="Dallas Mavericks">Dallas Mavericks</option>
+                    <option value="Denver Nuggets">Denver Nuggets</option>
+                    <option value="Detroit Pistons">Detroit Pistons</option>
+                    <option value="Golden State Warriors">Golden State Warriors</option>
+                    <option value="Houston Rockets">Houston Rockets</option>
+                    <option value="Indiana Pacers">Indiana Pacers</option>
+                    <option value="LA Clippers">LA Clippers</option>
+                    <option value="Los Angeles Lakers">Los Angeles Lakers</option>
+                    <option value="Memphis Grizzlies">Memphis Grizzlies</option>
+                    <option value="Miami Heat">Miami Heat</option>
+                    <option value="Milwaukee Bucks">Milwaukee Bucks</option>
+                    <option value="Minnesota Timberwolves">Minnesota Timberwolves</option>
+                    <option value="New Orleans Pelicans">New Orleans Pelicans</option>
+                    <option value="New York Knicks">New York Knicks</option>
+                    <option value="Oklahoma City Thunder">Oklahoma City Thunder</option>
+                    <option value="Orlando Magic">Orlando Magic</option>
+                    <option value="Philadelphia 76ers">Philadelphia 76ers</option>
+                    <option value="Phoenix Suns">Phoenix Suns</option>
+                    <option value="Portland Trail Blazers">Portland Trail Blazers</option>
+                    <option value="Sacramento Kings">Sacramento Kings</option>
+                    <option value="San Antonio Spurs">San Antonio Spurs</option>
+                    <option value="Toronto Raptors">Toronto Raptors</option>
+                    <option value="Utah Jazz">Utah Jazz</option>
+                    <option value="Washington Wizards">Washington Wizards</option>
+                </select>
+               <input class = "season" type="number" min="1960" max="2025" />
+                Playoff Game :
+                <input class = "playoff" type= "checkbox">
+                <button class = clearGame>clear</button>
+                <button class = searchGame>Search</button>
             </div>
 
             <div class = "answer">
+                
                 
             </div>
 

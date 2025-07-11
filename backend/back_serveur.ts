@@ -63,6 +63,50 @@ const secretKey = await crypto.subtle.importKey(
   ["sign", "verify"],
 );
 
+const teamsList = [
+  { id: 1, full_name: "Atlanta Hawks" },
+  { id: 2, full_name: "Boston Celtics" },
+  { id: 3, full_name: "Brooklyn Nets" },
+  { id: 4, full_name: "Charlotte Hornets" },
+  { id: 5, full_name: "Chicago Bulls" },
+  { id: 6, full_name: "Cleveland Cavaliers" },
+  { id: 7, full_name: "Dallas Mavericks" },
+  { id: 8, full_name: "Denver Nuggets" },
+  { id: 9, full_name: "Detroit Pistons" },
+  { id: 10, full_name: "Golden State Warriors" },
+  { id: 11, full_name: "Houston Rockets" },
+  { id: 12, full_name: "Indiana Pacers" },
+  { id: 13, full_name: "LA Clippers" },
+  { id: 14, full_name: "Los Angeles Lakers" },
+  { id: 15, full_name: "Memphis Grizzlies" },
+  { id: 16, full_name: "Miami Heat" },
+  { id: 17, full_name: "Milwaukee Bucks" },
+  { id: 18, full_name: "Minnesota Timberwolves" },
+  { id: 19, full_name: "New Orleans Pelicans" },
+  { id: 20, full_name: "New York Knicks" },
+  { id: 21, full_name: "Oklahoma City Thunder" },
+  { id: 22, full_name: "Orlando Magic" },
+  { id: 23, full_name: "Philadelphia 76ers" },
+  { id: 24, full_name: "Phoenix Suns" },
+  { id: 25, full_name: "Portland Trail Blazers" },
+  { id: 26, full_name: "Sacramento Kings" },
+  { id: 27, full_name: "San Antonio Spurs" },
+  { id: 28, full_name: "Toronto Raptors" },
+  { id: 29, full_name: "Utah Jazz" },
+  { id: 30, full_name: "Washington Wizards" }
+];
+
+function findTeamId(nameOfTheTeam){
+  for (let i = 0; i<teamsList.length; i++){
+    if (teamsList[i].full_name === nameOfTheTeam){
+      return teamsList[i].id;
+    }
+  }
+}
+
+
+
+
 // Routes
 
 router.post("/register", async (ctx) => {
@@ -166,9 +210,50 @@ router.get("/api/nba/players", async (ctx) => {
     const params: string[] = [];
     const firstName = ctx.request.url.searchParams.get("first_name");
     const lastName = ctx.request.url.searchParams.get("last_name");
-    if (firstName!= null && lastName !=null){
-      baseURL = `https://api.balldontlie.io/v1/players?first_name=${firstName}&last_name=${lastName}`; 
-    };
+    const position = ctx.request.url.searchParams.get("position");
+    const height = ctx.request.url.searchParams.get("height");
+    const team = ctx.request.url.searchParams.get("team");
+    const teamId = findTeamId(team);
+    const per_page="100";
+
+    if (!firstName && lastName){
+      baseURL = `https://api.balldontlie.io/v1/players?search=${lastName}&per_page=${per_page}`;
+    }
+    else if (firstName && !lastName){
+      baseURL = `https://api.balldontlie.io/v1/players?search=${firstName}&per_page=${per_page}`;
+    }
+    // Recherche par prénom + nom uniquement
+    else if (firstName && lastName ) {
+      baseURL = `https://api.balldontlie.io/v1/players?first_name=${firstName}&last_name=${lastName}&per_page=${per_page}`;
+    }else if (!firstName && !lastName && team !== "team" && position !== "Position : none") {
+      if (!teamId) {
+        ctx.response.status = 400;
+        ctx.response.body = { error: "Equipe inconnue" };
+        return;
+      }
+      baseURL = `https://api.balldontlie.io/v1/players?team_ids[]=${teamId}&position=${position}&per_page=${per_page}`;
+  }
+        // Uniquement club
+    else if (!firstName && !lastName && team !== "team") {
+      if (!teamId){
+        ctx.response.status = 400;
+        ctx.response.body = { error : "Equipe inconnue"};
+        return;
+      }
+      
+      baseURL = `https://api.balldontlie.io/v1/players?team_ids[]=${teamId}&per_page=${per_page}`;
+    }
+    
+    else if (!firstName && !lastName && (!position || position === "Position : none") && (!team || team === "team")) {
+      baseURL = `https://api.balldontlie.io/v1/players?per_page=${per_page}`;
+    }
+    else {
+      baseURL = `https://api.balldontlie.io/v1/players?per_page=${per_page}`;
+  }
+    
+
+
+    
     const response = await fetch(baseURL, {
       headers: { "Authorization": API_KEY }
     });
@@ -176,6 +261,8 @@ router.get("/api/nba/players", async (ctx) => {
     const text = await response.text();
     console.log("Réponse balldontlie:", text);
     const data = JSON.parse(text);
+    
+
     ctx.response.body = data;
   } catch (e) {
     ctx.response.status = 500;
@@ -183,6 +270,60 @@ router.get("/api/nba/players", async (ctx) => {
   }
 });
 
+
+
+
+router.get("/api/nba/teams", async (ctx) =>{
+  const API_KEY = "71827bd2-05f4-4679-8897-688b8ee92c6a"; 
+  const baseURL = "https://api.balldontlie.io/v1/teams"
+  try {
+    const response = await fetch(baseURL, {
+      headers: { "Authorization": API_KEY }
+    });
+
+    const text = await response.text();
+    console.log("Réponse balldontlie:", text);
+    const data = JSON.parse(text);
+    
+
+    ctx.response.body = data;
+  } catch (e) {
+    ctx.response.status = 500;
+    ctx.response.body = { error: "Erreur lors de la récupération du joueur NBA", details: e.message };
+  }
+
+});
+
+
+
+router.get("/api/nba/games", async (ctx) =>{
+  const API_KEY = "71827bd2-05f4-4679-8897-688b8ee92c6a"; 
+  const params: string[] = [];
+  const team_game = ctx.request.url.searchParams.get("team");
+  const season = ctx.request.url.searchParams.get("season");
+  const teamId = findTeamId(team_game);
+  
+  const baseURL = `https://api.balldontlie.io/v1/games?team_ids[]=${teamId}&seasons[]=${season}&per_page=100`
+  try {
+
+    console.log("team_game:", team_game, "teamId:", teamId, "season:", season);
+    console.log("URL envoyée à balldontlie:", baseURL);
+    const response = await fetch(baseURL, {
+      headers: { "Authorization": API_KEY }
+    });
+
+    const text = await response.text();
+    console.log("Réponse balldontlie:", text);
+    const data = JSON.parse(text);
+    
+
+    ctx.response.body = data;
+  } catch (e) {
+    ctx.response.status = 500;
+    ctx.response.body = { error: "Erreur lors de la récupération du match", details: e.message };
+  }
+
+});
 
 
 

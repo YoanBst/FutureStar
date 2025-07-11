@@ -21,6 +21,7 @@ html, body {
 body{
 	min-height: 100vh;
 	background-image:url("images/fond2.jpg");
+	background-attachment: fixed;
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size:cover;
@@ -65,8 +66,10 @@ body{
 	height:25px;
 }
 .valider{
+	height:25px;
 	width:100px;
-	margin-left:20px;
+	margin-left:5px;
+	
 }
 
 .playerButton{
@@ -79,11 +82,25 @@ body{
 	width:80px;
 }
 
-.search-button{
-	margin-left:60px;
-	width:60px;
+.poste{
+	width:120px;
+	height:25px;
+	margin-top:10px;
 }
 
+.clear{
+	width:70px;
+}
+
+.searchTeam{
+	margin-left: 235px;
+	width:70px;
+}
+
+.searchGame{
+	margin-left : 410px;
+	width : 70px;
+}
 
 .answer {
     width: 980px;
@@ -111,6 +128,9 @@ body{
   color: #222;
   font-weight: bold;
 }
+
+
+
 footer {
     position: fixed;
     left: 0;
@@ -119,9 +139,9 @@ footer {
     padding: 25px;
     background-color: rgba(255, 255, 255, 0.5);
     text-align: center;
-    height: 40px;
+    height: 10px;
     z-index: 100;
-    margin-top: 0; /* retire le margin-top */
+    margin-top: 0; 
 }
 
 h1{
